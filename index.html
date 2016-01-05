@@ -4,6 +4,17 @@
       <title>Having fun with Git</title>
       </head>
     <body>
-      <p>My first commit!!!</p>
-      </body>
+      <p id="jsElement">My first commit!!!</p>
+      <script type="text/javascript">
+          var siteUser = prompt("Lemmie know your name.");
+          alert("Howdy," + " " + siteUser + "! Pleased to meechya.");
+          console.log('The user\'s name is' + ' ' + siteUser);
+          var myFirstAnswer = prompt(siteUser + ', this is a Y or N question! Please tell me if Caleb has any pets.');
+          if(myFirstAnswer == 'N') {
+            alert('Hey' + ' ' + siteUser + ', You got it right!');
+          }   else {
+            alert('Whoops' + ' ' + siteUser + ', try again!');
+          }
+      </script>
+    </body>
 </html>
