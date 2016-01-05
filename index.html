@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html>
+
     <head>
-      <title>Having fun with Git</title>
-      </head>
+      <title>Having fun with JavaScript and Git</title>
+    </head>
+
     <body>
-      <p id="jsElement">My first commit!!!</p>
+      <h2>Welcome! Have fun playing "Get to know Caleb!"</h2>
+
+      <p id="gameInfo">Just follow the prompts to play. If you'd like to play again, just refresh your browser after you're done to reset the game!</p>
+
       <script type="text/javascript">
-          var siteUser = prompt("Lemmie know your name.");
-          alert("Howdy," + " " + siteUser + "! Pleased to meechya.");
-          console.log('The user\'s name is' + ' ' + siteUser);
-          var myFirstAnswer = prompt(siteUser + ', this is a Y or N question! Please tell me if Caleb has any pets.');
-          if(myFirstAnswer == 'N') {
-            alert('Hey' + ' ' + siteUser + ', You got it right!');
+          var primaryUser = prompt("Lemmie know your name.");
+          alert("Howdy," + " " + primaryUser + "! Pleased to meechya.");
+          console.log('The primary user\'s name for this page is' + ' ' + primaryUser + '.');
+          alert(primaryUser + ', I have a series of yes-or-no questions for you to see how well you know me! For each question, please type "yes" or "no," then hit "OK!"');
+          var firstAnswer = prompt('OK' + ' ' + primaryUser + ', first challenge: Was I born in Southern California?');
+          if(firstAnswer == 'no') {
+            alert('Hey' + ' ' + primaryUser + ', You got it right! I was born in Portland.');
           }   else {
-            alert('Whoops' + ' ' + siteUser + ', try again!');
+            alert('Whoops' + ' ' + primaryUser + ', close but no cigar!');
           }
+          var secondAnswer = prompt('Ready for the next question,' + ' ' + primaryUser + '? Here goes: Have I ever lived outside the United States?');
+          if(secondAnswer == 'yes') {
+            alert('Right on! You\'re good at this,' + ' ' + primaryUser + '! I lived in Germany for a year in a study abroad program while at Portland State.');
+          } else {
+            alert('Uh oh, think again,' + ' ' + primaryUser + '. Hint: I studied abroad for a year in college.');
+          }
+          var thirdAnswer = prompt('Ready for the last challenge? You\'ve got this,' + ' ' + primaryUser + '! OK, here\'s the question: Have I climbed to the highest points of Washington, Oregon, and California?');
+          if(thirdAnswer == 'no') {
+            alert('Nice,' + ' ' + primaryUser + '! That was a little tricky, even if you knew me pretty well. I have made it to the top of Mt. Rainier (Washington\'s highest point) and Mt Hood (Oregon\'s highest) but despite attempting and getting to about 12,000\', I have not (yet!) made it to the top of Mt. Whitney!');
+          } else {
+            alert('Sorry' + ' ' + primaryUser + ', that\'s not the correct answer! I admit it\'s a bit of a trick question if you know me already... I\'ve been to some of those high points, but not all of them!');
+          }
+          console.log('The primary user\'s answers to the three questions were' + ' ' + firstAnswer + ',' + ' ' + secondAnswer + ', and' + ' ' + thirdAnswer + ', respectively.');
+          alert('Thanks for playing!')
+
       </script>
+
     </body>
+
 </html>
