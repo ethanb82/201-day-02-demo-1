@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Guess which year Caleb was born!</title>
+    </head>
+
+    <body>
+
+        <h2>Guess Caleb's birth year!</h2>
+        <p>This is a little JavaScript exercise I created for fun!</p>
+
+        <script type="text/javascript">
+            var yearGuess = prompt('In what year was I born?');
+            if(yearGuess < 1984) {
+              alert('I\'m not THAT old!');
+            } else if(yearGuess >= 1985) {
+              alert('I WISH I was that young!');
+            } else if (yearGuess == 1984) {
+              alert('Yep, you got it!');
+            } else {
+              alert('Whoops, looks like you did not guess a valid year!');
+            }
+            console.log('The user guessed the year' + ' ' + yearGuess + '.');
+        </script>
+
+    </body>
+</html>
