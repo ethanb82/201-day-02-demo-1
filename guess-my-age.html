@@ -8,6 +8,7 @@
 
         <h2>Guess Caleb's birth year!</h2>
         <p>This is a little JavaScript exercise I created for fun!</p>
+        <p id="hint">Just for funsies, this text will change to a hint if you guess wrong!!!</p>
 
         <script type="text/javascript">
             var yearGuess = prompt('In what year was I born?');
@@ -21,6 +22,14 @@
               alert('Whoops, looks like you did not guess a valid year!');
             }
             console.log('The user guessed the year' + ' ' + yearGuess + '.');
+            var hintText = "George Orwell"
+            var prehintText = document.getElementById('hint');
+            console.log(prehintText);
+            console.log(prehintText.textContent);
+            if(yearGuess < 1984) {
+              prehintText.textContent = hintText;
+              console.log(prehintText.textContent);
+            }
         </script>
 
     </body>
