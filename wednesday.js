@@ -30,9 +30,7 @@ while (valid == false || correct == false) {
     correct = false;
   }
 }
-//VALID/CORRECT variables need to be reset to false after each question...
-//...otherwise, if first question is answered correctly, the game ends...
-//...without triggering any of the subsequent questions
+/*VALID/CORRECT variables need to be reset to false after each question; otherwise, if first question is answered correctly, the game ends without triggering any of the subsequent questions*/
 valid = false;
 correct = false;
 
@@ -73,32 +71,43 @@ while (valid == false || correct == false) {
     correct = false;
   }
 }
+valid = false;
+correct = false;
+var hintText = 'George Orwell'
+var prehintText = document.getElementById('hint');
 
-//log user's answers in the console and thank them for playing
+//logs user's answers in the console and thanks them for playing
 console.log('The primary user\'s answers to the three questions were' + ' ' + firstAnswer + ',' + ' ' + secondAnswer + ', and' + ' ' + thirdAnswer + ', respectively.');
 alert('Thanks for playing!');
 
 //this is my age guessing game
-var yearGuess = prompt('In what year was I born?');
-if(yearGuess < 1984) {
-  alert('I\'m not THAT old!');
-} else if(yearGuess >= 1985) {
-  alert('I WISH I was that young!');
-} else if (yearGuess == 1984) {
-  alert('Yep, you got it!');
-} else {
-  alert('Whoops, looks like you did not guess a valid year!');
+while (valid == false || correct == false) {
+  var yearGuess = prompt('In what year was I born?');
+  /*the first if statement changes a paragraph in my HTML document to give the user a hint if user guesses wrong*/
+  if(yearGuess < 1984 || yearGuess >= 1985) {
+    prehintText.textContent = hintText;
+  }
+  if(yearGuess < 1984) {
+    alert('I\'m not THAT old!');
+    valid = true;
+    correct = false;
+  } else if(yearGuess >= 1985) {
+    alert('I WISH I was that young!');
+    valid = true;
+    correct = false;
+  } else if (yearGuess == 1984) {
+    alert('Yep, you got it!');
+    valid = true;
+    correct = true;
+  } else {
+    alert('Whoops, looks like you did not guess a valid year!');
+    valid = false;
+    correct = false;
+  }
+  console.log('The user guessed the year' + ' ' + yearGuess + '.');
 }
-console.log('The user guessed the year' + ' ' + yearGuess + '.');
 
-//this changes a paragraph in my HTML document to give the user a hint
-//fires only if user guesses wrong
-var hintText = "George Orwell"
-var prehintText = document.getElementById('hint');
-console.log(prehintText);
-console.log(prehintText.textContent);
-console.log(((document.getElementById('hint')).textContent).toUpperCase())
-if(yearGuess < 1984 || yearGuess >= 1985) {
-  prehintText.textContent = hintText;
-  console.log(prehintText.textContent);
-}
+//give the user a message celebrating their awesomeness
+var awesomenessMessage = ('You are AWESOME! Your answers were' + ' ' + firstAnswer + ',' + ' ' + secondAnswer + ', and' + ' ' + thirdAnswer + '! You answered' + ' ' + yearGuess + ' ' + 'on the bonus question! Give yourself a round of applause!');
+var awesomenessParagraph = document.getElementById('awesome');
+awesomenessParagraph.textContent = awesomenessMessage;
