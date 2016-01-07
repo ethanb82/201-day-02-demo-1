@@ -30,6 +30,7 @@ while (valid == false || correct == false) {
     correct = false;
   }
 }
+
 /*VALID/CORRECT variables need to be reset to false after each question; otherwise, if first question is answered correctly, the game ends without triggering any of the subsequent questions*/
 valid = false;
 correct = false;
@@ -73,12 +74,14 @@ while (valid == false || correct == false) {
 }
 valid = false;
 correct = false;
-var hintText = 'George Orwell'
-var prehintText = document.getElementById('hint');
 
 //logs user's answers in the console and thanks them for playing
 console.log('The primary user\'s answers to the three questions were' + ' ' + firstAnswer + ',' + ' ' + secondAnswer + ', and' + ' ' + thirdAnswer + ', respectively.');
 alert('Thanks for playing!');
+
+//this section sets the variables needed to display the hint in the next loop
+var hintText = 'George Orwell'
+var prehintText = document.getElementById('hint');
 
 //this is my age guessing game
 while (valid == false || correct == false) {
