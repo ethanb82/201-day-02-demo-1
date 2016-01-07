@@ -32,3 +32,5 @@ location-feature
 
 git checkout -b new-branch-name //creates new branch (substitue your branch name for new-branch-name)
 git checkout branch-name //navigates to the branch you want to access
+
+When working in a team, work on the same file on different sections of code, but don't work on the same lines of code simultaneously, so avoid a conflict when merging versions later.
