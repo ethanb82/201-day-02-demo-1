@@ -22,11 +22,11 @@ while (valid == false || correct == false) {
     valid = true;
     correct = true;
   }   else if(firstAnswer == 'yes' || firstAnswer == 'y') {
-    document.getElementById("demo2").innerHTML ='Whoops' + ' ' + primaryUser + ', close but no cigar!';
+    document.getElementById("demo1").innerHTML ='Whoops' + ' ' + primaryUser + ', close but no cigar!';
     valid = true;
     correct = false;
   }   else {
-    document.getElementById("demo3").innerHTML ='Sorry, that\'s not a valid yes-or-no answer! Did you make sure you typed "Yes" or "No?" (Case does not matter!) Click OK to answer the question again!';
+    document.getElementById("demo1").innerHTML ='Sorry, that\'s not a valid yes-or-no answer! Did you make sure you typed "Yes" or "No?" (Case does not matter!) Click OK to answer the question again!';
     valid = false;
     correct = false;
   }
@@ -91,9 +91,11 @@ console.log('The primary user\'s answers to the three questions were' + ' ' + fi
 }
 
 //this section sets the variables needed to display the hint in the next loop
-var hintText = 'George Orwell'
+var hintText = ' HINT: George Orwell'
 var prehintText = document.getElementById('hint');
 
+document.getElementById("a").innerHTML = "BONUS QUESTION: Guess Calebs birth year!";
+document.getElementById("b").innerHTML = "This is a little JavaScript exercise I created for fun!!!";
 //this is my age guessing game
 function ageGuess(){
 while (valid == false || correct == false) {
@@ -103,19 +105,19 @@ while (valid == false || correct == false) {
     prehintText.textContent = hintText;
   }
   if(yearGuess < 1984) {
-    document.getElementById("demo10").innerHTML = 'I\'m not THAT old!';
+    document.getElementById("demo10", "hint").innerHTML = 'I\'m not THAT old!';
     valid = true;
     correct = false;
   } else if(yearGuess >= 1985) {
-    document.getElementById("demo10").innerHTML = 'I WISH I was that young!';
+    document.getElementById("demo10", "hint").innerHTML = 'I WISH I was that young!';
     valid = true;
     correct = false;
   } else if (yearGuess == 1984) {
-    document.getElementById("demo10").innerHTML = 'Yep, you got it!';
+    document.getElementById("demo10", "hint").innerHTML = 'Yep, you got it! I was born in 1984';
     valid = true;
     correct = true;
   } else {
-    document.getElementById("demo10").innerHTML = 'Whoops, looks like you did not guess a valid year!';
+    document.getElementById("demo10", "hint").innerHTML = 'Whoops, looks like you did not guess a valid year!';
     valid = false;
     correct = false;
   }
