@@ -11,26 +11,44 @@ document.getElementById("demo0").innerHTML ='Howdy,' + ' ' + primaryUser + '! Pl
 //while loop will complete only when answer is both VALID and CORRECT
 var valid = false;
 var correct = false;
+var questionData = [
+  ['OK' + ' ' + primaryUser + ', first challenge: Was I born in Southern California?',
+  'no' , 'n' , 'Hey' + ' ' + primaryUser + ', You got it right! I was born in Portland.' ,
+  'yes' , 'y' , 'Whoops' + ' ' + primaryUser + ', close but no cigar!',
+  'Sorry, that\'s not a valid yes-or-no answer! Did you make sure you typed "Yes" or "No?" (Case does not matter!) Click OK to answer the question again'],
+
+  ['Ready for the next question,' + ' ' + primaryUser + '? Here goes: Have I ever lived outside the United States?',
+  'yes', 'y', 'Right on! You\'re good at this,' + ' ' + primaryUser + '! I lived in Germany for a year in a study abroad program while at Portland State.', 'no', 'n',
+  'Uh oh, think again,' + ' ' + primaryUser + '. Hint: I studied abroad for a year in college.'],
+
+  ['Ready for the last challenge? You\'ve got this,' + ' ' + primaryUser + '! OK, here\'s the question: Have I climbed to the highest points of Washington, Oregon, and California?', 'no', 'n',
+  'Nice,' + ' ' + primaryUser + '! That was a little tricky, even if you knew me pretty well. I have made it to the top of Mt. Rainier (Washington\'s highest point) and Mt Hood (Oregon\'s highest) but despite attempting and getting to about 12,000\', I have not (yet!) made it to the top of Mt. Whitney!', 'yes', 'y',
+  'Sorry' + ' ' + primaryUser + ', that\'s not the correct answer! I admit it\'s a bit of a trick question if you know me already... I\'ve been to some of those high points, but not all of them!']
+
+];
+console.log(questionData);
 
 //ask the user a question about where I was born
 //make the user answer correctly before they can move on to next question
 function bornWhere(){
-while (valid == false || correct == false) {
-  var firstAnswer = prompt('OK' + ' ' + primaryUser + ', first challenge: Was I born in Southern California?').toLowerCase();
-  if(firstAnswer == 'no' || firstAnswer == 'n') {
-    document.getElementById("demo1").innerHTML ='Hey' + ' ' + primaryUser + ', You got it right! I was born in Portland.';
-    valid = true;
-    correct = true;
-  }   else if(firstAnswer == 'yes' || firstAnswer == 'y') {
-    document.getElementById("demo1").innerHTML ='Whoops' + ' ' + primaryUser + ', close but no cigar!';
-    valid = true;
-    correct = false;
-  }   else {
-    document.getElementById("demo1").innerHTML ='Sorry, that\'s not a valid yes-or-no answer! Did you make sure you typed "Yes" or "No?" (Case does not matter!) Click OK to answer the question again!';
-    valid = false;
-    correct = false;
+  while (valid == false || correct == false) {
+    var firstAnswer = prompt(questionData[0][0]).toLowerCase();
+    if(firstAnswer == questionData[0][1] || firstAnswer == questionData[0][2]) {
+      document.getElementById("demo1").innerHTML = questionData[0][3];
+      document.getElementById("demo1").className = 'right';
+      valid = true;
+      correct = true;
+    }   else if(firstAnswer == questionData[0][4] || firstAnswer == questionData[0][5]) {
+      document.getElementById("demo1").innerHTML = questionData[0][6];
+      document.getElementById("demo1").className = 'wrong';
+      valid = true;
+      correct = false;
+    }   else {
+      document.getElementById("demo1").innerHTML = questionData[0][7];
+      valid = false;
+      correct = false;
+    }
   }
-}
 }
 bornWhere();
 /*VALID/CORRECT variables need to be reset to false after each question; otherwise, if first question is answered correctly, the game ends without triggering any of the subsequent questions*/
@@ -39,22 +57,24 @@ correct = false;
 
 //ask the user a question about where I've lived in the past
 function liveAbroad(){
-while (valid == false || correct == false) {
-  var secondAnswer = prompt('Ready for the next question,' + ' ' + primaryUser + '? Here goes: Have I ever lived outside the United States?').toLowerCase();
-  if(secondAnswer == 'yes' || secondAnswer == 'y') {
-    document.getElementById("demo4").innerHTML ='Right on! You\'re good at this,' + ' ' + primaryUser + '! I lived in Germany for a year in a study abroad program while at Portland State.';
-    valid = true;
-    correct = true;
-  } else if(secondAnswer == 'no' || secondAnswer == 'n') {
-    document.getElementById("demo4").innerHTML ='Uh oh, think again,' + ' ' + primaryUser + '. Hint: I studied abroad for a year in college.';
-    valid = true;
-    correct = false;
-  } else {
-    document.getElementById("demo4").innerHTML = 'Sorry, that\'s not a valid yes-or-no answer! Did you make sure you typed your answer in all lower case?';
-    valid = false;
-    correct = false;
+  while (valid == false || correct == false) {
+    var secondAnswer = prompt(questionData[1][0]).toLowerCase();
+    if(secondAnswer == questionData[1][1] || secondAnswer == questionData[1][2]) {
+      document.getElementById("demo4").innerHTML = questionData[1][3];
+      document.getElementById("demo4").className = 'right';
+      valid = true;
+      correct = true;
+    } else if(secondAnswer == questionData[1][4] || secondAnswer == questionData[1][5]) {
+      document.getElementById("demo4").innerHTML = questionData[1][6];
+      document.getElementById("demo4").className = 'wrong';
+      valid = true;
+      correct = false;
+    } else {
+      document.getElementById("demo4").innerHTML = questionData[0][7];
+      valid = false;
+      correct = false;
+    }
   }
-}
 }
 liveAbroad();
 
@@ -63,22 +83,24 @@ correct = false;
 
 //ask the user a question about which mountains I've climbed
 function climbUp() {
-while (valid == false || correct == false) {
-  var thirdAnswer = prompt('Ready for the last challenge? You\'ve got this,' + ' ' + primaryUser + '! OK, here\'s the question: Have I climbed to the highest points of Washington, Oregon, and California?').toLowerCase();
-  if(thirdAnswer == 'no' || thirdAnswer == 'n') {
-    document.getElementById("demo7").innerHTML = 'Nice,' + ' ' + primaryUser + '! That was a little tricky, even if you knew me pretty well. I have made it to the top of Mt. Rainier (Washington\'s highest point) and Mt Hood (Oregon\'s highest) but despite attempting and getting to about 12,000\', I have not (yet!) made it to the top of Mt. Whitney!';
-    valid = true;
-    correct = true;
-  } else if(thirdAnswer == 'yes' || thirdAnswer == 'y') {
-    document.getElementById("demo7").innerHTML = 'Sorry' + ' ' + primaryUser + ', that\'s not the correct answer! I admit it\'s a bit of a trick question if you know me already... I\'ve been to some of those high points, but not all of them!';
-    valid = true;
-    correct = false;
-  } else {
-    document.getElementById("demo7").innerHTML = 'Sorry, that\'s not a valid yes-or-no answer! Did you make sure you typed your answer in all lower case?';
-    valid = false;
-    correct = false;
+  while (valid == false || correct == false) {
+    var thirdAnswer = prompt(questionData[2][0]).toLowerCase();
+    if(thirdAnswer == questionData[2][1] || thirdAnswer == questionData[2][2]) {
+      document.getElementById("demo7").innerHTML = questionData[2][3];
+      document.getElementById("demo7").className = 'right';
+      valid = true;
+      correct = true;
+    } else if(thirdAnswer == questionData[2][4] || thirdAnswer == questionData[2][5]) {
+      document.getElementById("demo7").innerHTML = questionData[2][6];
+      document.getElementById("demo4").className = 'wrong';
+      valid = true;
+      correct = false;
+    } else {
+      document.getElementById("demo7").innerHTML = questionData[0][7];
+      valid = false;
+      correct = false;
+    }
   }
-}
 }
 climbUp();
 valid = false;
